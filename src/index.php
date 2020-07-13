@@ -1,3 +1,15 @@
+<?php
+// mulai session
+session_start();
+
+// menghubungkan dengan koneksi
+include 'koneksi.php';
+
+//cek status login
+if(!isset($_SESSION['status'])){
+    header("location:login.php?pesan=belum_login");
+}
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,14 +19,6 @@
     <script src="assets/js/bootstrap.min.js"></script>
 </head>
 <body>
-	<!-- cek apakah sudah login -->
-	<?php 
-  session_start();
-	if($_SESSION['status']!="login"){
-		header("location:login.php?pesan=belum_login");
-  }
-	?>
-
         <div id="wrapper" class="active">
         <!-- Sidebar -->
         <div id="sidebar-wrapper">

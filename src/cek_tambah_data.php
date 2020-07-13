@@ -1,12 +1,13 @@
 <?php
+    // mulai session
+    session_start();
+
     // menghubungkan dengan koneksi
     include 'koneksi.php';
 
-    session_start();
-
     //cek status login
-	if($_SESSION['status']!="login"){
-		header("location:login.php?pesan=belum_login");
+    if(!isset($_SESSION['status'])){
+        header("location:login.php?pesan=belum_login");
     }
     
     // mengambil data yang dikirim dari form
